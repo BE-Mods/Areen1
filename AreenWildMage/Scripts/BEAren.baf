@@ -205,7 +205,7 @@ IF
   !See([ENEMY])
 THEN
     RESPONSE #100
-    RealSetGlobalTimer("BEMontaron1Timer","GLOBAL",600) // 600 seconds timer
+    RealSetGlobalTimer("BEMontaron1Timer","GLOBAL",2400) // 600 seconds timer
     SetGlobal("BEMontaron1","GLOBAL",1)
 END
 
@@ -242,7 +242,7 @@ IF
   !See([ENEMY])
 THEN
     RESPONSE #100
-    RealSetGlobalTimer("BEDynaheir1Timer","GLOBAL",600)
+    RealSetGlobalTimer("BEDynaheir1Timer","GLOBAL",2400)
     SetGlobal("BEDynaheir1","GLOBAL",1)
 END
 
@@ -278,7 +278,7 @@ IF
   !See([ENEMY])
 THEN
     RESPONSE #100
-    RealSetGlobalTimer("BEXan1Timer","GLOBAL",600)
+    RealSetGlobalTimer("BEXan1Timer","GLOBAL",2400)
     SetGlobal("BEXan1","GLOBAL",1)
 END
 
@@ -313,7 +313,7 @@ IF
   !See([ENEMY])
 THEN
     RESPONSE #100
-    RealSetGlobalTimer("BEQuayleTimer","GLOBAL",600)
+    RealSetGlobalTimer("BEQuayle1Timer","GLOBAL",1800)
     SetGlobal("BEQuayle1","GLOBAL",1)
 END
 
@@ -347,7 +347,7 @@ IF
   !See([ENEMY])
 THEN
     RESPONSE #100
-    RealSetGlobalTimer("BEEdwin1Timer","GLOBAL",600)
+    RealSetGlobalTimer("BEEdwin1Timer","GLOBAL",2400)
     SetGlobal("BEEdwin1","GLOBAL",1)
 END
 

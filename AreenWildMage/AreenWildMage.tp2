@@ -1,0 +1,161 @@
+BACKUP ~AreenWildMage/Backup~
+AUTHOR ~Boresal (borsal@gmail.com)~
+
+
+VERSION ~v1.0~
+
+README ~AreenWildMage/Readme-Areen.txt~
+
+AUTO_TRA ~AreenWildMage/tra/%s~
+/*
+LANGUAGE
+    ~English~
+    ~English~
+    ~AreenWildMage/tra/English/SETUP.tra~
+    ~AreenWildMage/tra/English/BEAren.tra~
+    ~AreenWildMage/tra/English/BEArenB.tra~
+    ~AreenWildMage/tra/English/BEArenJ.tra~
+    ~AreenWildMage/tra/English/BEArenP.tra~
+    ~AreenWildMage/tra/English/JournalEntries.tra~
+ */
+LANGUAGE ~English~ ~English~ ~AreenWildMage/tra/English/setup.tra~
+
+BEGIN @1
+
+ADD_JOURNAL TITLE (@5099) @5100 @5101 @5102 @5103 @5104 @5105 @5106
+
+// Creature Areen
+
+COPY ~AreenWildMage\CRE\BEAren.cre~ ~override~
+    SAY NAME1 @2
+    SAY NAME2 @2
+    SAY BIO @3
+    WRITE_ASCII DIALOG ~BEAren~
+    WRITE_ASCII SCRIPT_OVERRIDE ~BEAren~
+    REMOVE_KNOWN_SPELL ~spwi124~ ~spwi222~ ~spwi723~
+
+// Dialog
+
+//COMPILE ~AreenWildMage\dialog~
+
+COMPILE EVALUATE_BUFFER ~AreenWildMage/Dialog/BEArenB.d~
+	~AreenWildMage/Dialog/BEAren.d~  // Areen's greeting dialogue
+	~AreenWildMage/Dialog/BEArenJ.d~ // The rest of Areen's dialogue.
+	~AreenWildMage/Dialog/BEArenP.d~ // Areen's leaving party dialogue will go here.
+
+
+APPEND ~Pdialog.2da~
+~BEAren BEArenp BEArenj~
+UNLESS ~BEAren~
+
+APPEND ~Interdia.2da~
+~BEAren BEArenb~
+UNLESS ~BEAren~
+
+
+// Scripts
+
+COMPILE ~AreenWildMage\scripts\BEAren.baf~
+
+
+// Area patching
+
+COPY_EXISTING ~ar2300.are~ ~override~
+  LPF fj_are_structure
+    INT_VAR
+    fj_loc_x          = 1200
+    fj_loc_y          = 3268
+    fj_schedule       = 0b111111111111111111111110
+    fj_orientation    = 15     //SSE
+    STR_VAR
+    fj_structure_type = actor
+    fj_name           = Areen
+    fj_cre_resref     = BEAren
+  END
+
+
+// New items
+
+COPY ~AreenWildMage\items\BESTAF1.ITM~ ~override~
+     SAY 0xC @5
+     SAY 0x54 @6
+
+COPY ~AreenWildMage\items\BESCRL1.ITM~ ~override~
+     SAY 0xC @7
+     SAY 0x54 @8
+
+COPY ~AreenWildMage\items\BESCRL2.ITM~ ~override~
+     SAY 0xC @9
+     SAY 0x54 @10
+
+COPY ~AreenWildMage\items\BESCRL3.ITM~ ~override~
+     SAY 0xC @11
+     SAY 0x54 @12
+
+COPY ~AreenWildMage\items\BEROBE1.ITM~ ~override~
+     SAY 0xC @13
+     SAY 0x54 @14
+
+// New spells
+
+COPY ~AreenWildMage\spells\BEDEL#1.SPL~ ~override~
+COPY ~AreenWildMage\spells\BEDEL#2.SPL~ ~override~
+COPY ~AreenWildMage\spells\BEDEL#3.SPL~ ~override~
+
+COPY ~AreenWildMage\spells\BEWI599.SPL~ ~override~
+     SAY 0X8 @15
+     SAY 0x50 @16
+
+// Lore Books
+
+COPY_EXISTING ~BOOK14.ITM~ ~override~
+     SAY 0xC @17
+     SAY 0x54 @18
+
+COPY_EXISTING ~BOOK63.ITM~ ~override~
+     SAY 0xC @19
+     SAY 0x54 @20
+
+COPY_EXISTING ~BOOK64.ITM~ ~override~
+     SAY 0xC @21
+     SAY 0x54 @22
+
+COPY_EXISTING ~BOOK65.ITM~ ~override~
+     SAY 0xC @23
+     SAY 0x54 @24
+
+COPY_EXISTING ~BOOK66.ITM~ ~override~
+     SAY 0xC @25
+     SAY 0x54 @26
+
+COPY_EXISTING ~BOOK67.ITM~ ~override~
+     SAY 0xC @27
+     SAY 0x54 @28
+
+// Creature patching
+
+// Tarnesh
+COPY_EXISTING ~TARNES.cre~ ~override~
+              ADD_CRE_ITEM ~BESCRL1~ #0 #0 #0 ~identified~ ~INV13~       //adding Nahal scroll
+
+// Tranzig
+COPY_EXISTING ~TRANZI.cre~ ~override~
+              ADD_CRE_ITEM ~BESCRL2~ #0 #0 #0 ~identified~ ~INV13~       //adding Chaos Shield scroll
+
+// Venkt
+COPY_EXISTING ~VENKT.cre~ ~override~
+              ADD_CRE_ITEM ~BESTAF1~ #0 #0 #0 ~identified~ ~INV12~        //adding Areen's staff
+              ADD_CRE_ITEM ~BOOK67~ #0 #0 #0 ~identified~ ~INV13~         //this is a teaser, there are no such components in BGEE, perhaps something to do in BG2EE
+
+// Davaeorn
+COPY_EXISTING ~DAVAEO.cre~ ~override~
+              ADD_CRE_ITEM ~BEROBE1~ #0 #0 #0 ~identified~ ~INV13~       //adding Chaos Armor robe
+
+// Krystin
+COPY_EXISTING ~KRYSTI.cre~ ~override~
+              ADD_CRE_ITEM ~BESCRL3~ #0 #0 #0 ~identified~ ~INV13~       //adding New Improved Chaos Shield scroll
+
+BEGIN @4
+
+// New wild surges table
+COPY ~AreenWildMage\2DA\WILDMAG.2DA~ ~override~

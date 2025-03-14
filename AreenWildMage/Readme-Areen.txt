@@ -2,15 +2,14 @@
  ***************** AREEN THE WILD MAGE -- BGEE NPC MOD *****************
  ***********************************************************************
 
- VERSION: 1.1     PLATFORMS: BGEE, BGEE+SoD     AUTHOR: BORESAL
+ VERSION: 1.2     PLATFORMS: BGEE, BGEE+SoD     AUTHOR: BORESAL
  
  
 I. INTRODUCTION / DESCRIPTION
 
-This mod adds a joinable NPC, Areen the wild mage. Stats-wise is a strong character,
-but it comes with a caveat that can be fixed progressively during the game.
+This mod adds a joinable NPC, Areen the wild mage. Stats-wise is a strong character, but it comes with a caveat that can be fixed progressively during the game.
 
-Areen has small banter with all wizards of the game.
+Areen has small banter with all wizards in the game (and their companions). But he is incompatible with Neera in the long run.
 
 
 II. QUEST / ENCOUNTERS
@@ -81,10 +80,11 @@ VIII. VERSION HISTORY
 	- Additional content:
 		+ New dialogue entry upon entering Candlekeep library in Chapter 6.
 		+ Updated ReadMe
-2025/03/12: v1.2
+2025/03/14: v1.2
 	- Fixed dialogue bugs:
-		+ Bardly solved issue with area-triggered talks directing to setup.tra instead of j.tra -- Needs further improvement.
+		+ Area-triggered talks misplacement.
 		+ Going back to using * instead of italics, for compatibility.
  	- Other fixes:
-		+ remove lb from item weight description for consistency with vanilla items.
+		+ Remove "lb" from item weight description for consistency with vanilla items.
+		+ Improved dialogues
 		
