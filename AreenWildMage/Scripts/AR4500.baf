@@ -1,0 +1,9 @@
+
+IF
+!GlobalTimerNotExpired("WildmagicTimer","AR4500")
+THEN
+RESPONSE #100
+ApplySpell(Player1,WILD_MAGIC_AREA)
+SetGlobalTimer("WildmagicTimer","AR4500",14)
+Continue()
+END

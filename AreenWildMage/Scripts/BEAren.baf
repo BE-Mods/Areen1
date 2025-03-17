@@ -313,7 +313,7 @@ IF
   !See([ENEMY])
 THEN
     RESPONSE #100
-    RealSetGlobalTimer("BEQuayle1Timer","GLOBAL",1800)
+    RealSetGlobalTimer("BEQuayle1Timer","GLOBAL",2400)
     SetGlobal("BEQuayle1","GLOBAL",1)
 END
 
@@ -502,5 +502,17 @@ IF
 THEN
     RESPONSE #100
     SetGlobal("BEUndercity","GLOBAL",1)
+    StartDialogueNoSet(Myself)
+END
+
+// Firewine ruins speach
+IF
+  InParty(Myself)
+  AreaCheck("AR4500")
+  !ActuallyInCombat()
+  Global("BEFirewine","GLOBAL",0)
+THEN
+    RESPONSE #100
+    SetGlobal("BEFirewine","GLOBAL",1)
     StartDialogueNoSet(Myself)
 END

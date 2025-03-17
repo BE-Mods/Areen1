@@ -87,4 +87,10 @@ VIII. VERSION HISTORY
  	- Other fixes:
 		+ Remove "lb" from item weight description for consistency with vanilla items.
 		+ Improved dialogues
-		
+
+2025/03/14: v1.3
+	- Additions:
+		+ Make Firewine Bridge Area a wild magic zone as per lore.
+		+ Areen dialogue upon entering the area
+		+ Areen interjections with Ajantis intro dialogue
+		+ Areen interjection to Lord Foreshadow comment on Athkatla		

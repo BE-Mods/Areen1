@@ -1,23 +1,13 @@
 BACKUP ~AreenWildMage/Backup~
-AUTHOR ~Boresal (borsal@gmail.com)~
+AUTHOR ~Boresal~
 
 
-VERSION ~v1.0~
+VERSION ~v1.3~
 
 README ~AreenWildMage/Readme-Areen.txt~
 
 AUTO_TRA ~AreenWildMage/tra/%s~
-/*
-LANGUAGE
-    ~English~
-    ~English~
-    ~AreenWildMage/tra/English/SETUP.tra~
-    ~AreenWildMage/tra/English/BEAren.tra~
-    ~AreenWildMage/tra/English/BEArenB.tra~
-    ~AreenWildMage/tra/English/BEArenJ.tra~
-    ~AreenWildMage/tra/English/BEArenP.tra~
-    ~AreenWildMage/tra/English/JournalEntries.tra~
- */
+
 LANGUAGE ~English~ ~English~ ~AreenWildMage/tra/English/setup.tra~
 
 BEGIN @1
@@ -26,7 +16,7 @@ ADD_JOURNAL TITLE (@5099) @5100 @5101 @5102 @5103 @5104 @5105 @5106
 
 // Creature Areen
 
-COPY ~AreenWildMage\CRE\BEAren.cre~ ~override~
+COPY ~AreenWildMage/CRE/BEAren.cre~ ~override~
     SAY NAME1 @2
     SAY NAME2 @2
     SAY BIO @3
@@ -36,13 +26,10 @@ COPY ~AreenWildMage\CRE\BEAren.cre~ ~override~
 
 // Dialog
 
-//COMPILE ~AreenWildMage\dialog~
-
 COMPILE EVALUATE_BUFFER ~AreenWildMage/Dialog/BEArenB.d~
 	~AreenWildMage/Dialog/BEAren.d~  // Areen's greeting dialogue
 	~AreenWildMage/Dialog/BEArenJ.d~ // The rest of Areen's dialogue.
 	~AreenWildMage/Dialog/BEArenP.d~ // Areen's leaving party dialogue will go here.
-
 
 APPEND ~Pdialog.2da~
 ~BEAren BEArenp BEArenj~
@@ -52,13 +39,15 @@ APPEND ~Interdia.2da~
 ~BEAren BEArenb~
 UNLESS ~BEAren~
 
-
 // Scripts
 
-COMPILE ~AreenWildMage\scripts\BEAren.baf~
-
+COMPILE ~AreenWildMage/scripts/BEAren.baf~
 
 // Area patching
+
+EXTEND_TOP ~AR4500.bcs~ ~AreenWildMage/scripts/AR4500.baf~
+
+EXTEND_TOP ~AR5201.bcs~ ~AreenWildMage/scripts/AR5201.baf~
 
 COPY_EXISTING ~ar2300.are~ ~override~
   LPF fj_are_structure
@@ -76,33 +65,33 @@ COPY_EXISTING ~ar2300.are~ ~override~
 
 // New items
 
-COPY ~AreenWildMage\items\BESTAF1.ITM~ ~override~
+COPY ~AreenWildMage/items/BESTAF1.ITM~ ~override~
      SAY 0xC @5
      SAY 0x54 @6
 
-COPY ~AreenWildMage\items\BESCRL1.ITM~ ~override~
+COPY ~AreenWildMage/items/BESCRL1.ITM~ ~override~
      SAY 0xC @7
      SAY 0x54 @8
 
-COPY ~AreenWildMage\items\BESCRL2.ITM~ ~override~
+COPY ~AreenWildMage/items/BESCRL2.ITM~ ~override~
      SAY 0xC @9
      SAY 0x54 @10
 
-COPY ~AreenWildMage\items\BESCRL3.ITM~ ~override~
+COPY ~AreenWildMage/items/BESCRL3.ITM~ ~override~
      SAY 0xC @11
      SAY 0x54 @12
 
-COPY ~AreenWildMage\items\BEROBE1.ITM~ ~override~
+COPY ~AreenWildMage/items/BEROBE1.ITM~ ~override~
      SAY 0xC @13
      SAY 0x54 @14
 
 // New spells
 
-COPY ~AreenWildMage\spells\BEDEL#1.SPL~ ~override~
-COPY ~AreenWildMage\spells\BEDEL#2.SPL~ ~override~
-COPY ~AreenWildMage\spells\BEDEL#3.SPL~ ~override~
+COPY ~AreenWildMage/spells/BEDEL#1.SPL~ ~override~
+COPY ~AreenWildMage/spells/BEDEL#2.SPL~ ~override~
+COPY ~AreenWildMage/spells/BEDEL#3.SPL~ ~override~
 
-COPY ~AreenWildMage\spells\BEWI599.SPL~ ~override~
+COPY ~AreenWildMage/spells/BEWI599.SPL~ ~override~
      SAY 0X8 @15
      SAY 0x50 @16
 
@@ -158,4 +147,4 @@ COPY_EXISTING ~KRYSTI.cre~ ~override~
 BEGIN @4
 
 // New wild surges table
-COPY ~AreenWildMage\2DA\WILDMAG.2DA~ ~override~
+COPY ~AreenWildMage/2DA/WILDMAG.2DA~ ~override~
