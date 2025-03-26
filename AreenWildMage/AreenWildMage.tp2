@@ -15,6 +15,7 @@ BEGIN @1
 ADD_JOURNAL TITLE (@5099) @5100 @5101 @5102 @5103 @5104 @5105 @5106
 
 // Creature Areen
+COPY ~AreenWildMage/Portraits/bearen.bmp~ ~override/bearen.bmp~
 
 COPY ~AreenWildMage/CRE/BEAren.cre~ ~override~
     SAY NAME1 @2
@@ -23,6 +24,8 @@ COPY ~AreenWildMage/CRE/BEAren.cre~ ~override~
     WRITE_ASCII DIALOG ~BEAren~
     WRITE_ASCII SCRIPT_OVERRIDE ~BEAren~
     REMOVE_KNOWN_SPELL ~spwi124~ ~spwi222~ ~spwi723~
+    WRITE_ASCII 0x34 ~bearen~
+    WRITE_ASCII 0x3c ~bearen~
 
 // Dialog
 
