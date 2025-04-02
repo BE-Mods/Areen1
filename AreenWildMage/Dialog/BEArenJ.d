@@ -52,6 +52,8 @@ I_C_T AJANTI 2 BEArenAjantis2
 == BEARENJ IF ~InParty("BEAren") InMyArea("BEAren") !StateCheck("BEAren",CD_STATE_NOTVALID)~ THEN @12
 END
 
+/* he disapears
 I_C_T FORESH 3 BEArenForesh3
 == BEARENJ IF ~InParty("BEAren") InMyArea("BEAren") !StateCheck("BEAren",CD_STATE_NOTVALID)~ THEN @13
 END
+*/
